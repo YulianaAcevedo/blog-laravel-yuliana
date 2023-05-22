@@ -2,6 +2,7 @@
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
+use Illuminate\Encryption\openssl_cipher_iv_length;
 
 define('LARAVEL_START', microtime(true));
 
