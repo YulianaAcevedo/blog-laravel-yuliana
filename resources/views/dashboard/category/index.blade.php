@@ -1,36 +1,32 @@
 @extends('layouts.app')
 
-
-
 @section('content')
-    <h1>Listado de Categorías</h1>
-
-    <table>
+    <a class="btn btn-success my-3" href="{{ route('categories.create') }}">Crear categoría</a>
+    <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Acciones</th>
+                <th>Nombre categoría</th>
+                <th>Slug</th>
+                <th colspan="2">Acciones</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($categories as $category)
+            @foreach ($categories as $c)
                 <tr>
-                    <td>{{ $category->id }}</td>
-                    <td>{{ $category->name }}</td>
-                    <td>{{ $category->description }}</td>
-                    <td>
-                        <!-- Agrega aquí los enlaces para editar y eliminar -->
-                        <a href="{{ route('category.edit', $category) }}">Editar</a>
-                        <form action="{{ route('category.destroy', $category) }}" method="POST">
+                    <td>{{ $c->title }}</td>
+                    <td>{{ $c->slug }}</td>
+                    <td width="10px">
+                        <a class="btn btn-primary btn-action edit" href="{{ route('categories.edit', $c) }}">Editar</a>
+                        <a class="btn btn-primary btn-action" href="{{ route('categories.show', $c) }}">Ver</a>
+                        <form action="{{ route('categories.destroy', $c) }}" method="POST" class="form-delete">
                             @csrf
                             @method('DELETE')
-                            <button type="submit">Eliminar</button>
+                            <button class="btn btn-danger btn-action delete" type="submit">Eliminar</button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
+    {{ $categories->links() }}
 @endsection

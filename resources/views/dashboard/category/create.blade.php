@@ -1,11 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Añadir Categoría</h1>
-
-    <form action="{{ route('category.store') }}" method="POST">
-        @csrf
+    <h1>Crear de Categoría de publicaciones</h1>
+    @include('dashboard.fragment._errors-form')
+    <form action="{{ route('categories.store') }}" method="post">
         @include('dashboard.category._form')
-        <button type="submit">Guardar</button>
     </form>
 @endsection
