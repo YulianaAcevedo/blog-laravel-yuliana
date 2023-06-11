@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 use App\Http\Requests\Post\PutRequest;
 use App\Http\Requests\Post\StoreRequest;
-
+use App\Http\Controllers\Api\CategoryController;
 class PostController extends Controller
 {
     /**
