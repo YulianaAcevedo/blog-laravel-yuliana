@@ -81,7 +81,7 @@ class PostController extends Controller
             $request->image->move(public_path('images/otro'), $filename);
         }
         $post->update($data);
-        return redirect()->route('posts.index')->with('status', 'Publicación actualizado');
+        return redirect()->route('posts.index')->with('status', 'Publicación actualizada');
     }
 
     /**

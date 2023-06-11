@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('dashboard.layout')
 
 @section('content')
     <a class="btn btn-success my-3" href="{{ route('posts.create') }}">Crear publicación</a>
-    <table class="table">
+    <table class="table mb-3">
         <thead>
             <tr>
                 <th>Título</th>
@@ -18,8 +18,8 @@
                     <td>{{ $p->category->title }}</td>
                     <td>{{ $p->posted }}</td>
                     <td width="10px">
-                        <a class="btn btn-primary" href="{{ route('posts.edit', $p) }}">Editar</a>
-                        <a class="btn btn-primary" href="{{ route('posts.show', $p) }}">Ver</a>
+                        <a class="mt-2 btn btn-primary" href="{{ route('posts.edit', $p) }}">Editar</a>
+                        <a class="mt-2 btn btn-primary" href="{{ route('posts.show', $p) }}">Ver</a>
                         <form action="{{ route('posts.destroy', $p) }}" method="POST">
                             @csrf
                             @method('DELETE')
