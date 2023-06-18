@@ -46,7 +46,7 @@ class PostController extends Controller
     {
         $post = new Post($request->validated());
         $post->save();
-        return to_route('posts.index')->with('status', "Nuevo post creado");
+        return to_route('post.index')->with('status', "Nuevo post creado");
     }
 
     /**
@@ -81,7 +81,7 @@ class PostController extends Controller
             $request->image->move(public_path('images/otro'), $filename);
         }
         $post->update($data);
-        return redirect()->route('posts.index')->with('status', 'Publicación actualizada');
+        return redirect()->route('post.index')->with('status', 'Publicación actualizada');
     }
 
     /**
@@ -93,6 +93,6 @@ class PostController extends Controller
             abort(403);
         } */
         $post->delete();
-        return redirect()->route('posts.index')->with('status', 'Publicación eliminada');
+        return redirect()->route('post.index')->with('status', 'Publicación eliminada');
     }
 }
